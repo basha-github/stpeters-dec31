@@ -31,6 +31,33 @@ public class SBIBank implements Bank{
 	}
 		
 	}
+
+
+
+	@Override
+	public void deposit(int amt) {
+		// TODO Auto-generated method stub
+		
+
+		try {
+			if(amt > 50000) {
+				System.out.println("amt "+amt+" trying to deposit...");
+				throw new LimitExceedsException(
+						"more than 50k not possible ");
+				
+			}
+			else {
+				System.out.println("successfully deposited amount...."+amt);
+				this.balance = this.balance + amt;
+			}
+		}catch(LimitExceedsException e) {
+			System.out.println("error occurred during deposit...");
+			e.printStackTrace();
+		}
+			
+		
+		
+	}
 	
 
 }
